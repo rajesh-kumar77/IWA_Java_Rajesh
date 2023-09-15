@@ -45,11 +45,8 @@ jobs:
               sudo echo "3.80.147.71 fortify.cyberxdemo.com" | sudo tee -a /etc/hosts
               cat /etc/hosts
       # Prepare source+dependencies for upload.  ScanCentral Client documentation is located at https://www.microfocus.com/documentation/fortify-software-security-center/
-      - name: Download Fortify ScanCentral Client
-        uses: fortify/gha-setup-scancentral-client@v2
-        with:
-          version: 23.1.0                                      # On-prem customers should specify a client version that matches their ScanCentral environment
-          client-auth-token: ${{ secrets.CLIENT_AUTH_TOKEN }}  # Optional, but required if ScanCentral Controller requires client authentication
+      - name: Fortify ScanCentral Scan
+        uses: fortify/gha-setup-scancentral-client@v1.2.0
       #- name: Package Code + Dependencies
         #run: scancentral package $PACKAGE_OPTS -o package.zip
         #env:
