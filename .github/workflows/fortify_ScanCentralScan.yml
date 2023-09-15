@@ -11,7 +11,7 @@
 # assistance with configuration, feel free to create a help ticket in the Fortify on Demand portal.                                            #
 ################################################################################################################################################
 
-name: Fortify on Demand Scan
+name: Fortify SSC Scan
 
 on:
   workflow_dispatch:
