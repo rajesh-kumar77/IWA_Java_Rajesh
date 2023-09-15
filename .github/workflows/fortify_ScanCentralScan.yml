@@ -19,7 +19,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  FoD-SAST-Scan:
+  SSC-SAST-Scan:
     # Use the appropriate runner for building your source code.
     runs-on: ubuntu-latest
     permissions:
