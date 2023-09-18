@@ -54,7 +54,7 @@ jobs:
           #PACKAGE_OPTS: "-bt mvn -oss"
 
       - name: Perform SAST Scan
-        run: scancentral -url ${SC_CONTROLLER_URL} start $BUILD_OPTS  -scan -upload -application $APPLICATION -version $VERSION -uptoken $SSC_UPLOAD_TOKEN
+        run: scancentral -url "https://fortify.cyberxdemo.com:8443/ssc" start $BUILD_OPTS  -scan -upload -application $APPLICATION -version $VERSION -uptoken "9be3e5fb-ba85-43aa-b4c4-8409fdcf54b8"
         env:                                            
           #SC_CONTROLLER_URL: ${{ secrets.SC_CONTROLLER_URL }}
           #SSC_UPLOAD_TOKEN: ${{ secrets.SSC_UPLOAD_TOKEN }}
