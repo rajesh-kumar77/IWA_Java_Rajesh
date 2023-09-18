@@ -56,8 +56,10 @@ jobs:
       - name: Perform SAST Scan
         run: scancentral -url ${SC_CONTROLLER_URL} start $BUILD_OPTS  -scan -upload -application $APPLICATION -version $VERSION -uptoken $SSC_UPLOAD_TOKEN
         env:                                            
-          SC_CONTROLLER_URL: ${{ secrets.SC_CONTROLLER_URL }}
-          SSC_UPLOAD_TOKEN: ${{ secrets.SSC_UPLOAD_TOKEN }}
+          #SC_CONTROLLER_URL: ${{ secrets.SC_CONTROLLER_URL }}
+          #SSC_UPLOAD_TOKEN: ${{ secrets.SSC_UPLOAD_TOKEN }}
+          SC_CONTROLLER_URL: ${{ secrets.SSC_BASE_URL }}
+          SSC_UPLOAD_TOKEN: ${{ secrets.SSC_AUTHTOKEN_DECODED }}
           APPLICATION: "My Application"
           VERSION: "1.0"
           BUILD_OPTS: "-bt mvn"
