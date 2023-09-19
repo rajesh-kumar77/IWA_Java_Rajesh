@@ -47,22 +47,20 @@ jobs:
       # Prepare source+dependencies for upload.  ScanCentral Client documentation is located at https://www.microfocus.com/documentation/fortify-software-security-center/
       - name: Fortify ScanCentral Scan
         uses: fortify/gha-setup-scancentral-client@v1.2.0
+        with:
+          version: 23.1.0                                      # On-prem customers should specify a client version that matches their ScanCentral environment
+                                                               # FoD customers usually should not specify a version but rather rely on the default version
+          client-auth-token: ${{ secrets.CLIENT_AUTH_TOKEN }}  # Optional, but required if ScanCentral Controller requires client authentication
       #- name: Package Code + Dependencies
         #run: scancentral package $PACKAGE_OPTS -o package.zip
         #env:
           #PACKAGE_OPTS: "-bt mvn -oss"
 
       - name: Perform SAST Scan
-        run: |
-            scancentral -sscurl $SSC_URL -ssctoken $SSC_AUTH_TOKEN start $BUILD_OPTS -scan -upload -application $APPLICATION -version $VERSION -uptoken $SSC_UPLOAD_TOKEN
-            ls /home/runner/.fortify/scancentral/log
-        #run: scancentral -url $SC_CONTROLLER_URL start $BUILD_OPTS  -scan -upload -application $APPLICATION -version $VERSION -uptoken $SSC_UPLOAD_TOKEN
+        run: scancentral -url $SC_CONTROLLER_URL start $BUILD_OPTS -scan -upload -application $APPLICATION -version $VERSION -uptoken $SSC_UPLOAD_TOKEN
         env:                                            
-          #SC_CONTROLLER_URL: ${{ secrets.SC_CONTROLLER_URL }}
-          #SSC_UPLOAD_TOKEN: ${{ secrets.SSC_UPLOAD_TOKEN }}
-          SSC_URL: ${{ secrets.SSC_BASE_URL }}
-          SSC_AUTH_TOKEN: ${{ secrets.SSC_AUTHTOKEN_DECODED }}
-          SSC_UPLOAD_TOKEN: ${{ secrets.SSC_AUTHTOKEN_DECODED }}
+          SC_CONTROLLER_URL: ${{ secrets.SC_CONTROLLER_URL }}
+          SSC_UPLOAD_TOKEN: ${{ secrets.SSC_UPLOAD_TOKEN }}
           APPLICATION: "My Application"
           VERSION: "1.0"
           BUILD_OPTS: "-bt mvn"
