@@ -20,7 +20,7 @@ jobs:
          with:
           ssc_base_url: ${{ secrets.SSC_BASE_URL }}
           ssc_auth_token: ${{ secrets.SSC_AUTHTOKEN_DECODED }}
-          ssc_version_id: ${{ secrets.SSC_VERSION_ID }}
+          ssc_version_name: "My Application:1.0"
 
        # Import Fortify SAST results to GitHub Security Code Scanning
        - name: Import Results
