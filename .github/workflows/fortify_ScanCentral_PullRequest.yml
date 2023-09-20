@@ -23,7 +23,7 @@ jobs:
          run: |
               export RUNNER_ALLOW_RUNASROOT="1"
               export AGENT_ALLOW_RUNASROOT="1"
-              sudo echo "44.202.27.20 fortify.cyberxdemo.com" | sudo tee -a /etc/hosts
+              sudo echo "54.196.18.172 fortify.cyberxdemo.com" | sudo tee -a /etc/hosts
               cat /etc/hosts
        # Pull SAST issues from SSC and generate GitHub-optimized SARIF output
        - name: Export Results to GitHub-optimized SARIF
