@@ -30,7 +30,9 @@ jobs:
          uses: fortify/gha-export-vulnerabilities@v1
          with:
           ssc_base_url: ${{ secrets.SSC_BASE_URL }}
-          ssc_auth_token: ${{ secrets.SSC_AUTHTOKEN_DECODED }}
+          #ssc_auth_token: ${{ secrets.SSC_AUTHTOKEN_DECODED }}
+          ssc_user: ${{ secrets.SSC_USER }}
+          ssc_password: ${{ secrets.SSC_PWD }}
           ssc_version_name: "My Application:1.0"
 
        # Import Fortify SAST results to GitHub Security Code Scanning
