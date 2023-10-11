@@ -40,8 +40,7 @@ jobs:
             distribution: 'zulu'
             cache: maven
         - name: Build with Maven
-          run: | 
-            mvn clean -B package --file pom.xml -e -X
+          run: mvn clean -B package --file pom.xml -e -X
         - name: Configure and Start Fortify Stand alone SAST scan
           run: |
               PATH=%PATH%;C:/Program Files/Fortify/Fortify_SCA_and_Apps_22.2.1/bin
