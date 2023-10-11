@@ -41,17 +41,17 @@ jobs:
             java-version: 17
             distribution: 'zulu'
             cache: maven
-        - name: Build with Maven
-          run: mvn clean -B package --file pom.xml -e
-        - name: Configure and Start Fortify Stand alone SAST scan
-          run: |
-              SET PATH=%PATH%;"C:/Program Files/Fortify/Fortify_SCA_and_Apps_22.2.1/bin"
-              fortifyupdate
-              sourceanalyzer -b github-java-build -clean
-              sourceanalyzer -b github-java-build -source 1.8 -cp "./**/*.jar" "./**/*.java" "./**/*.js" "./**/*.jsp" "./**/*.html" "./**/*.properties" "./**/*.xml"
-              sourceanalyzer -b github-java-build -scan -quick -f github-sast-report.fpr
-        #- name: Convert Fortify FPR files to SARIF format
-         # uses: fortify/gha-fpr-to-sarif
-          #with: 
-           # input: 'github-sast-report.fpr'
-            #outputDir: 'C:/Demo/Github'
+        #- name: Build with Maven
+          #run: mvn clean -B package --file pom.xml -e
+        #- name: Configure and Start Fortify Stand alone SAST scan
+          #run: |
+              #SET PATH=%PATH%;"C:/Program Files/Fortify/Fortify_SCA_and_Apps_22.2.1/bin"
+              #fortifyupdate
+              #sourceanalyzer -b github-java-build -clean
+              #sourceanalyzer -b github-java-build -source 1.8 -cp "./**/*.jar" "./**/*.java" "./**/*.js" "./**/*.jsp" "./**/*.html" "./**/*.properties" "./**/*.xml"
+              #sourceanalyzer -b github-java-build -scan -quick -f github-sast-report.fpr
+        - name: Convert Fortify FPR files to SARIF format
+          uses: fortify/gha-fpr-to-sarif@1.0.0
+          with: 
+            input: 'github-sast-report.fpr'
+            outputDir: 'C:/Demo/Github'
