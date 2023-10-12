@@ -53,4 +53,5 @@ jobs:
         - name: Convert Fortify FPR files to SARIF format
           run: |
             npm i -g @microsoft/sarif-multitool
-            npx @microsoft/sarif-multitool convert github-sast-report.fpr -t FortifyFpr -o test.sarif -f -p
+            #npx @microsoft/sarif-multitool convert github-sast-report.fpr -t FortifyFpr -o test.sarif -f -p
+            npx @microsoft/sarif-multitool convert github-sast-report.fpr -tool FortifyFpr -output test.sarif
