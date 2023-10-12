@@ -54,4 +54,4 @@ jobs:
           run: |
             npm i -g @microsoft/sarif-multitool
             #npx @microsoft/sarif-multitool convert github-sast-report.fpr -t FortifyFpr -o test.sarif -f -p
-            npx @microsoft/sarif-multitool convert github-sast-report.fpr -tool FortifyFpr -output test.sarif
+            npx @microsoft/sarif-multitool Sarif.Multitool convert github-sast-report.fpr -tool FortifyFpr -output test.sarif
