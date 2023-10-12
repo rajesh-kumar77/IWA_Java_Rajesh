@@ -23,11 +23,11 @@ jobs:
         # Check out source code
         - name: config git
           run: git config --global --add safe.directory C:/actions-runner/_work/IWA_Java_Rajesh/IWA_Java_Rajesh
-        #- name: Check Out Source Code
-         # uses: actions/checkout@v2
-          #with:
+        - name: Check Out Source Code
+          uses: actions/checkout@v2
+          with:
             # Fetch at least the immediate parents so that if this is a pull request then we can checkout the head.
-            #fetch-depth: 2
+            fetch-depth: 2
         # If this run was triggered by a pull request event, then checkout the head of the pull request instead of the merge commit.
         - run: git checkout HEAD^2
           if: ${{ github.event_name == 'pull_request' }}      
@@ -41,15 +41,15 @@ jobs:
             java-version: 17
             distribution: 'zulu'
             cache: maven
-        #- name: Build with Maven
-          #run: mvn clean -B package --file pom.xml -e
-        #- name: Configure and Start Fortify Stand alone SAST scan
-          #run: |
-              #SET PATH=%PATH%;"C:/Program Files/Fortify/Fortify_SCA_and_Apps_22.2.1/bin"
-              #fortifyupdate
-              #sourceanalyzer -b github-java-build -clean
-              #sourceanalyzer -b github-java-build -source 1.8 -cp "./**/*.jar" "./**/*.java" "./**/*.js" "./**/*.jsp" "./**/*.html" "./**/*.properties" "./**/*.xml"
-              #sourceanalyzer -b github-java-build -scan -quick -f github-sast-report.fpr
+        - name: Build with Maven
+          run: mvn clean -B package --file pom.xml -e
+        - name: Configure and Start Fortify Stand alone SAST scan
+          run: |
+              SET PATH=%PATH%;"C:/Program Files/Fortify/Fortify_SCA_and_Apps_22.2.1/bin"
+              fortifyupdate
+              sourceanalyzer -b github-java-build -clean
+              sourceanalyzer -b github-java-build -source 1.8 -cp "./**/*.jar" "./**/*.java" "./**/*.js" "./**/*.jsp" "./**/*.html" "./**/*.properties" "./**/*.xml"
+              sourceanalyzer -b github-java-build -scan -quick -f github-sast-report.fpr
         - name: Convert Fortify FPR files to SARIF format
           run: |
             npm i -g @microsoft/sarif-multitool
