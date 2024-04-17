@@ -40,7 +40,9 @@ jobs:
           env:
             SSC_URL: ${{secrets.SSC_URL}}
             SSC_TOKEN: ${{secrets.SSC_TOKEN}}
-            SC_SAST_TOKEN: ${{secrets.CLIENT_AUTH_TOKEN}}
+            #SC_SAST_TOKEN: ${{secrets.CLIENT_AUTH_TOKEN}}
+            SSC_USER: ${{ secrets.SSC_USER }}
+            SSC_PASSWORD: ${{ secrets.SSC_PWD }}
             # EXTRA_SC_SAST_LOGIN_OPTS: --socket-timeout=60s
             SSC_APPVERSION: "My Application:1.0"
             SC_SAST_SENSOR_VERSION: 23.2
