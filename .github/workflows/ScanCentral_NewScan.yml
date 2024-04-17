@@ -29,6 +29,12 @@ jobs:
           with:
              java-version: 17
              distribution: 'zulu'
+        - name: Setting FQDN address
+          run: |
+              export RUNNER_ALLOW_RUNASROOT="1"
+              export AGENT_ALLOW_RUNASROOT="1"
+              sudo echo "3.85.91.111 fortify.cyberxdemo.com" | sudo tee -a /etc/hosts
+              cat /etc/hosts
         - name: Run ScanCentral SAST Scan
           uses: fortify/github-action/sc-sast-scan@v1
           env:
@@ -36,22 +42,9 @@ jobs:
             SSC_TOKEN: ${{secrets.SSC_TOKEN}}
             SC_SAST_TOKEN: ${{secrets.CLIENT_AUTH_TOKEN}}
             # EXTRA_SC_SAST_LOGIN_OPTS: --socket-timeout=60s
-            SSC_APPVERSION: MyApp:MyVersion
+            SSC_APPVERSION: "My Application:1.0"
             SC_SAST_SENSOR_VERSION: 23.2
             EXTRA_PACKAGE_OPTS: "-bt mvn -oss"
             DO_EXPORT: "true"
             # DO_WAIT: true
-            # DO_EXPORT: true
             # TOOL_DEFINITIONS: https://ftfy.mycompany.com/tool-definitions/v1/tool-definitions.yaml.zip
-
-
-        - name: Run Scan Central SAST Scan
-          uses: fortify/github-action/fod-sast-scan@v1
-          env:
-            FOD_URL: "https://emea.fortify.com/"
-            FOD_TENANT: ${{secrets.FOD_TENANT_DEMO}}
-            FOD_USER: ${{secrets.FOD_USER_DEMO}}
-            FOD_PASSWORD: ${{secrets.FOD_PAT_DEMO}}
-            FOD_RELEASE: "Sample_WebGoat_Java:8.0"          
-            EXTRA_PACKAGE_OPTS: "-bt mvn -oss"
-            DO_EXPORT: "true"
