@@ -1,1 +1,57 @@
-ee
+name: Scan Central SAST Scan New
+
+on: 
+  workflow_dispatch:
+  push:
+    branches: [master]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [master]
+    
+jobs:  
+    FoD-SAST-Scan:
+      # Use the appropriate runner for building your source code. 
+      # Use Windows runner for projects that use msbuild. Additional changes to RUN commands will be required.
+      runs-on: ubuntu-latest
+      permissions:
+        actions: read
+        contents: read
+        security-events: write
+
+      steps:
+        - name: Check out source code
+          uses: actions/checkout@v4
+          # Java is required to run ScanCentral Client, and may be required for your build
+          # Java version to use depends on the Java version required to run your build (if any),
+          # and the Java version supported by the ScanCentral Client version that you are running
+        - name: Setup Java
+          uses: actions/setup-java@v1
+          with:
+             java-version: 17
+             distribution: 'zulu'
+        - name: Run ScanCentral SAST Scan
+          uses: fortify/github-action/sc-sast-scan@v1
+          env:
+            SSC_URL: ${{secrets.SSC_URL}}
+            SSC_TOKEN: ${{secrets.SSC_TOKEN}}
+            SC_SAST_TOKEN: ${{secrets.CLIENT_AUTH_TOKEN}}
+            # EXTRA_SC_SAST_LOGIN_OPTS: --socket-timeout=60s
+            SSC_APPVERSION: MyApp:MyVersion
+            SC_SAST_SENSOR_VERSION: 23.2
+            EXTRA_PACKAGE_OPTS: "-bt mvn -oss"
+            DO_EXPORT: "true"
+            # DO_WAIT: true
+            # DO_EXPORT: true
+            # TOOL_DEFINITIONS: https://ftfy.mycompany.com/tool-definitions/v1/tool-definitions.yaml.zip
+
+
+        - name: Run Scan Central SAST Scan
+          uses: fortify/github-action/fod-sast-scan@v1
+          env:
+            FOD_URL: "https://emea.fortify.com/"
+            FOD_TENANT: ${{secrets.FOD_TENANT_DEMO}}
+            FOD_USER: ${{secrets.FOD_USER_DEMO}}
+            FOD_PASSWORD: ${{secrets.FOD_PAT_DEMO}}
+            FOD_RELEASE: "Sample_WebGoat_Java:8.0"          
+            EXTRA_PACKAGE_OPTS: "-bt mvn -oss"
+            DO_EXPORT: "true"
