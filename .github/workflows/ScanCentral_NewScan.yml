@@ -38,7 +38,7 @@ jobs:
         - name: Run ScanCentral SAST Scan
           uses: fortify/github-action/sc-sast-scan@v1
           env:
-            SSC_URL: "https://fortify.cyberxdemo.com:8443/ssc"
+            SSC_URL: "https://fortify.cyberxdemo.com:8443/ssc/"
             #SSC_TOKEN: ${{secrets.SSC_TOKEN}}
             SC_SAST_TOKEN: "ZjRmY2UxMDItNWE2ZC00NjgzLWIzNDItOGE0MzY5MDI0M2U3"
             SSC_USER: "sscadmin"
