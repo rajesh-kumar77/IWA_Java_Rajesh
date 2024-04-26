@@ -39,14 +39,14 @@ jobs:
           uses: fortify/github-action/sc-sast-scan@v1
           env:
             SSC_URL: "https://fortify.cyberxdemo.com:8443/ssc/"
-            #SSC_TOKEN: ${{secrets.SSC_TOKEN}}
-            SC_SAST_TOKEN: "f4fce102-5a6d-4683-b342-8a43690243e7"
+            SSC_TOKEN: "YmJkMzhjODItNTIyOS00YTU0LWEyNGUtNzU1MGEzZDBiNjIz"
+            SC_SAST_TOKEN: "ZjRmY2UxMDItNWE2ZC00NjgzLWIzNDItOGE0MzY5MDI0M2U3"
             SSC_USER: "sscadmin"
             SSC_PASSWORD: "P@ssw0rd@123"
-            # EXTRA_SC_SAST_LOGIN_OPTS: --socket-timeout=60s
             SSC_APPVERSION: "My Application:1.0"
             SC_SAST_SENSOR_VERSION: 23.2
             EXTRA_PACKAGE_OPTS: "-bt mvn"
             DO_EXPORT: "true"
+            # EXTRA_SC_SAST_LOGIN_OPTS: --socket-timeout=60s
             # DO_WAIT: true
             # TOOL_DEFINITIONS: https://ftfy.mycompany.com/tool-definitions/v1/tool-definitions.yaml.zip
