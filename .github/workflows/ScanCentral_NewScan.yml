@@ -33,7 +33,7 @@ jobs:
           run: |
               export RUNNER_ALLOW_RUNASROOT="1"
               export AGENT_ALLOW_RUNASROOT="1"
-              sudo echo "34.207.192.31 fortify.cyberxdemo.com" | sudo tee -a /etc/hosts
+              sudo echo "44.204.33.43 fortify.cyberxdemo.com" | sudo tee -a /etc/hosts
               cat /etc/hosts
         - name: Run ScanCentral SAST Scan
           uses: fortify/github-action/sc-sast-scan@v1
