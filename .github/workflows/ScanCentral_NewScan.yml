@@ -39,7 +39,7 @@ jobs:
           uses: fortify/github-action/sc-sast-scan@v1
           env:
             SSC_URL: "https://fortify.cyberxdemo.com:8443/ssc/"
-            SSC_TOKEN: "YmJkMzhjODItNTIyOS00YTU0LWEyNGUtNzU1MGEzZDBiNjIz"
+            SSC_TOKEN: "ZjRmY2UxMDItNWE2ZC00NjgzLWIzNDItOGE0MzY5MDI0M2U3"
             SC_SAST_TOKEN: "ZjRmY2UxMDItNWE2ZC00NjgzLWIzNDItOGE0MzY5MDI0M2U3"
             SSC_USER: "sscadmin"
             SSC_PASSWORD: "P@ssw0rd@123"
