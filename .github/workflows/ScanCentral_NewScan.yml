@@ -46,7 +46,7 @@ jobs:
             # EXTRA_SC_SAST_LOGIN_OPTS: --socket-timeout=60s
             SSC_APPVERSION: "My Application:1.0"
             SC_SAST_SENSOR_VERSION: 23.2
-            EXTRA_PACKAGE_OPTS: "-bt mvn -oss"
+            EXTRA_PACKAGE_OPTS: "-bt mvn"
             DO_EXPORT: "true"
             # DO_WAIT: true
             # TOOL_DEFINITIONS: https://ftfy.mycompany.com/tool-definitions/v1/tool-definitions.yaml.zip
