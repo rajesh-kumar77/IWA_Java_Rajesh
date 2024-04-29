@@ -50,7 +50,7 @@ jobs:
           uses: fortify/github-action/sc-sast-scan@v1
           env:
             SSC_URL: "http://44.203.255.127:8180/ssc"
-            SSC_TOKEN: ${{secrets.CLIENT_AUTH_TOKEN}}
+            SSC_TOKEN: "YmJkMzhjODItNTIyOS00YTU0LWEyNGUtNzU1MGEzZDBiNjIz"
             SC_SAST_TOKEN: "YmJkMzhjODItNTIyOS00YTU0LWEyNGUtNzU1MGEzZDBiNjIz"
             SSC_USER: ${{secrets.SSC_USER}}
             SSC_PASSWORD: ${{secrets.SSC_PWD}}
