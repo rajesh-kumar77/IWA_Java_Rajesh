@@ -35,14 +35,14 @@ jobs:
               export AGENT_ALLOW_RUNASROOT="1"
               wget https://repository.emsign.com/certs/emSignRootCAG1.crt
               wget https://repository.emsign.com/certs/emSignSSLCAG1.crt
-              sudo apt-get install -y ca-certificates
-              sudo cp emSignRootCAG1.crt /usr/local/share/ca-certificates
-              sudo cp emSignSSLCAG1.crt /usr/local/share/ca-certificates
-              sudo update-ca-certificates
+              #sudo apt-get install -y ca-certificates
+              #sudo cp emSignRootCAG1.crt /usr/local/share/ca-certificates
+              #sudo cp emSignSSLCAG1.crt /usr/local/share/ca-certificates
+              #sudo update-ca-certificates
               #keytool -importcert -file "fortify.cyberxdemo.com.crt" -keystore truststore.jks -alias "Alias3"
               
-              #keytool -importcert -noprompt -trustcacerts -alias MyAl3 -file "emSignRootCAG1.crt" -keystore "C:\Program Files\Zulu\zulu-17\lib\security\cacerts" -storepass changeit
-              #keytool -import -noprompt -trustcacerts -alias MyA2 -file "emSignSSLCAG1.crt" -keystore "C:\Program Files\Zulu\zulu-17\lib\security\cacerts" -storepass changeit
+              keytool -importcert -noprompt -trustcacerts -alias MyAl3 -file "emSignRootCAG1.crt" -keystore $JAVA_HOME/lib/security/cacerts -storepass changeit
+              keytool -import -noprompt -trustcacerts -alias MyA2 -file "emSignSSLCAG1.crt" -keystore $JAVA_HOME/lib/security/cacerts -storepass changeit
               ls -l $JAVA_HOME/lib/security/cacerts
               sudo echo "35.174.113.206 fortify.cyberxdemo.com" | sudo tee -a /etc/hosts
               cat /etc/hosts
