@@ -56,7 +56,8 @@ jobs:
             SSC_PASSWORD: ${{secrets.SSC_PWD}}
             SSC_APPVERSION: "My Application:1.0"
             SC_SAST_SENSOR_VERSION: 23.2
-            EXTRA_PACKAGE_OPTS: "-bt mvn -k"
+            EXTRA_PACKAGE_OPTS: "-bt mvn"
+            EXTRA_SC_SAST_LOGIN_OPTS: --insecure 
             DO_EXPORT: "true"
             
             
