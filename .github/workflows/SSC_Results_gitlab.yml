@@ -30,4 +30,4 @@ jobs:
          if: always()
          with:
           name: json-files
-          path: '**/*.json'
+          path: '*.json'
