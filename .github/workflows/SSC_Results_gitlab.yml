@@ -37,9 +37,13 @@ jobs:
          with:
           token: "548afd6fab3bea9794a41b31da0e9404f733e222"
           defectdojo_url: "https://demo.defectdojo.org"
-          file: gl-fortify-sast.json
-          scan_type: GitLab SAST Report
+          file: "gl-fortify-sast.json"
+          scan_type: "GitLab SAST Report"
           product_name: "TestApp"
+          engagement: 1
+          active: true
+          verified: true
+          scan_date: "2024-05-08"
        - name: Show response
          run: |
           set -e
