@@ -19,12 +19,13 @@ jobs:
          uses: fortify/gha-export-vulnerabilities@v1
          with:
           export_config: /config/SSCToGitLab.yml
+          export_target: GitLab
           ssc_base_url: "http://3.95.208.58:8180/ssc"
           #ssc_auth_token: ${{ secrets.SSC_AUTHTOKEN_DECODED }}
           ssc_user: ${{secrets.SSC_USER}}
           ssc_password: ${{secrets.SSC_PWD}}
           ssc_version_name: "My Application:1.0"
-       # Import Fortify SAST results to GitLab Security Code Scanning
+     # Import Fortify SAST results to GitLab Security Code Scanning
        - uses: actions/upload-artifact@v3
          if: always()
          with:
