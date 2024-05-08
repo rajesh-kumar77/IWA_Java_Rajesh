@@ -18,7 +18,7 @@ jobs:
        - name: Export Results
          uses: fortify/gha-export-vulnerabilities@v1
          with:
-          export_config: ${{github.workspace}}/MyCustomExportConfig_GITLAB_Export1.yml
+          export_config: ${{github.workspace}}/MyCustomExportConfig_GITLAB_Export.yml
           //export_target: GitLab
           ssc_base_url: "http://54.144.210.118:8180/ssc"
           #ssc_auth_token: ${{ secrets.SSC_AUTHTOKEN_DECODED }}
