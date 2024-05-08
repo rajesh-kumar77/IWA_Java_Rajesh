@@ -31,3 +31,16 @@ jobs:
          with:
           name: json-files
           path: '*.json'
+       - name: Publish report
+         id: import-scan
+         uses: ivanamat/defectdojo-import-scan@v1
+         with:
+          token: "548afd6fab3bea9794a41b31da0e9404f733e222"
+          defectdojo_url: "https://demo.defectdojo.org"
+          file: gl-fortify-sast.json
+          scan_type: GitLab SAST Report
+          product_name: "TestApp"
+       - name: Show response
+         run: |
+          set -e
+          printf '%s\n' '${{ steps.import-scan.outputs.response }}'
