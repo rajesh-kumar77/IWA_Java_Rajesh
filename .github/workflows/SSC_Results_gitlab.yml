@@ -44,4 +44,4 @@ jobs:
            -F 'scan_date=2024-05-08' \
            -F 'file=@gl-fortify-sast.json;type=application/json' \
            -F 'scan_type=GitLab SAST Report' \
-           -F 'engagement=0'
+           -F 'engagement=1'
