@@ -35,7 +35,7 @@ jobs:
        - name: Defect Dojo call
          run: |
            curl --request POST \
-           --header 'Authorization: Token 548afd6fab3bea9794a41b31da0e9404f733e222' \
+           --header 'Authorization: Token ${{ secrets.DOJO_AUTH_TOKEN }}' \
            --header 'content-type: multipart/form-data' \
            --url https://demo.defectdojo.org/api/v2/import-scan/ \
            -F 'product_name=TestApp' \
