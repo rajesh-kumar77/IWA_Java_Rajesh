@@ -20,7 +20,7 @@ jobs:
          with:
           export_config: ${{github.workspace}}/MyCustomExportConfig_GITLAB_Export.yml
           //export_target: GitLab
-          ssc_base_url: "http://44.201.128.163:8180/ssc"
+          ssc_base_url: "http://54.161.233.158:8180/ssc"
           #ssc_auth_token: ${{ secrets.SSC_AUTHTOKEN_DECODED }}
           ssc_user: ${{secrets.SSC_USER}}
           ssc_password: ${{secrets.SSC_PWD}}
