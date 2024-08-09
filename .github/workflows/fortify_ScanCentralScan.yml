@@ -42,7 +42,7 @@ jobs:
         run: |
               export RUNNER_ALLOW_RUNASROOT="1"
               export AGENT_ALLOW_RUNASROOT="1"
-              sudo echo "44.202.27.20 fortify.cyberxdemo.com" | sudo tee -a /etc/hosts
+              sudo echo "18.212.172.204 fortify.cyberxdemo.com" | sudo tee -a /etc/hosts
               cat /etc/hosts
       # Prepare source+dependencies for upload.  ScanCentral Client documentation is located at https://www.microfocus.com/documentation/fortify-software-security-center/
       - name: Fortify ScanCentral Scan
